@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DoisLisos | Assistir no YouTube</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .button {
+      display: block;
+      margin-top: 25px;
+      padding: 16px 20px;
+      background: #ff0000;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+
+  <script>
+    const videoId = "K1ynbdgt2hs";
+
+    const youtubeWeb =
+      "https://www.youtube.com/watch?v=" + videoId;
+
+    const youtubeIntent =
+      "intent://www.youtube.com/watch?v=" + videoId +
+      "#Intent;package=com.google.android.youtube;scheme=https;end";
+
+    function abrirYouTube() {
+
+      // Android
+      if (/Android/i.test(navigator.userAgent)) {
+        window.location.href = youtubeIntent;
+
+        setTimeout(function () {
+          window.location.href = youtubeWeb;
+        }, 1800);
+
+      } else {
+        // iPhone / outros
+        window.location.href = youtubeWeb;
+      }
+    }
+
+    window.onload = function () {
+      document.getElementById("youtubeButton").href = youtubeWeb;
+
+      // Tenta abrir automaticamente
+      setTimeout(abrirYouTube, 300);
+    };
+  </script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🎬 DoisLisos</h1>
+
+    <p>
+      Estamos abrindo o vídeo no YouTube...
+    </p>
+
+    <p>
+      Se o aplicativo não abrir automaticamente,
+      toque no botão abaixo.
+    </p>
+
+    <a
+      id="youtubeButton"
+      class="button"
+      href="https://www.youtube.com/watch?v=K1ynbdgt2hs">
+      ▶️ ABRIR NO YOUTUBE
+    </a>
+
+  </div>
+
+</body>
+</html>
